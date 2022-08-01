@@ -8,15 +8,15 @@ namespace SalesWebMvc.Models
 {
     public class Departament
     {
-        public int id { get; set; }
-        public string  name { get; set; }
+        public int Id { get; set; }
+        public string  Name { get; set; }
         public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
 
 
         public Departament(int id, string name)
         {
-            this.id = id;
-            this.name = name;
+            Id = id;
+            Name = name;
         }
 
         public Departament()
