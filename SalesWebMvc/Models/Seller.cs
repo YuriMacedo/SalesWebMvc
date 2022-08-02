@@ -10,8 +10,12 @@ namespace SalesWebMvc.Models
     public class Seller
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "{0} required")]
+        [StringLength(60, MinimumLength =3,ErrorMessage = "Name must have at least 3 characters or less than 60 characters")]
         public string Name { get; set; }
         [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage ="{0} required")]
+        [EmailAddress(ErrorMessage = "Enter a valid email.")]
         public string Email { get; set; }
         [Display(Name = "Birth Date")]
         [DataType(DataType.Date)]
@@ -19,6 +23,7 @@ namespace SalesWebMvc.Models
         public DateTime BirthDate { get; set; }
         [Display(Name = "Base Salary")]
         [DisplayFormat(DataFormatString = "{0:F2}")]
+        [Range(100.0, 50000.0, ErrorMessage = "{0} must be between {1} and {2}")]
         public double BaseSalary { get; set; }
         public int DepartamentId { get; set; }
         public Departament Departament { get; set; }
